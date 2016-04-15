@@ -4,7 +4,7 @@
 # 内容：
 ## 一：Git初步
 >### 1.1 认识GIT 
-GIT是一个分布式版本管理系统。它与集中化不同的是，使用该系统的开发者既是单一也是全部。项目数据物理安全性大大提高。开发者版本交流自由且迅速。
+>>GIT是一个分布式版本管理系统。它与集中化不同的是，使用该系统的开发者既是单一也是全部。项目数据物理安全性大大提高。开发者版本交流自由且迅速。
 >### 1.2 创建git本地库
 >>1. Windows 环境：GIT官网下载 GIT for windows ;Ubuntu系统，在终端输入sudo apt-get git 
 >>2. 安装好，windows打开GIt bash。Ubuntu-> 
@@ -42,11 +42,13 @@ GIT是一个分布式版本管理系统。它与集中化不同的是，使用�
 >>4. 连接成功 输入 git push -u origin 分之名 将该分之下的文件推送到远程库
 
 ## 二．搭建LNMP
-> ###2.1 Ubantu系统搭建过程记录
->> LNMP是Linux+Nginx+MySQL+PHP的简称，是一套完整的PHP网站服务器架构环境。
+>### 2.1 Ubantu系统搭建过程记录
+>>LNMP是Linux+Nginx+MySQL+PHP的简称，是一套完整的PHP网站服务器架构环境。
 所用Linux发行版为Ubuntu Gnome 15.04，所有需要的软件均使用Ubuntu自带apt源下载安装。
-LNMP搭建参考资料：http://www.linuxdiyf.com/linux/13025.html
-Linux修改localhost：http://451568057.iteye.com/blog/1807610
+
+>>LNMP搭建参考资料：http://www.linuxdiyf.com/linux/13025.html
+
+>>Linux修改localhost：http://451568057.iteye.com/blog/1807610
 >>>首先，更新Ubuntu源：
 >>>
 	sudo apt-get update
@@ -116,9 +118,9 @@ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 	sudo /etc/init.d/php5-fpm restart
 然后在/home/tevenfeng/coding/php/tjurobocup文件夹下新建一个index.php文件，并输入相应的测试内容，打开浏览器输入localhost测试。
 ## 三．http协议、url
->### 3.1 http协议
+>>### 3.1 http协议
 在B-S（浏览器-服务器）系统架构中。http超文本传输协议的作用就是对二者之间的数据传输作一个规定。类似于现实生活中的合同，规定二者的权利和义务。使用http协议能大大提升网页浏览速度。
->### 3.2 url
+>>### 3.2 url
 Url是统一资源定位符。他的作用类似于现实中每个家庭都有的门牌号。Url指定了你在网络中的地址。
 
 
