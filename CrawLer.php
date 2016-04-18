@@ -12,15 +12,17 @@ class Crawler{
     public $title_preg='/title="(.*?)" target="_blank"/';
     public $price_preg='/<p class="p-price">(.*?)<\/p>/';
     
-    function craw(){
+    public function craw(){
         $page_arr=array();
         $title_arr=array();
         $price_arr=array();
-        $index_contents = file_get_contents($this->index_url);      
+       // $index_contents = file_get_contents($this->index_url); 
+        $index_contents = $this->getContents($this->index_url);
         preg_match_all($this->page_preg,$index_contents,$page_arr);      
         for($i=1;$i<=$page_arr[1][0];$i++){
             $page_url = $this->index_url.'&pageno='.$i;
-            $page_contents=file_get_contents($page_url);
+            //$page_contents=file_get_contents($page_url);
+            $page_contents = $this->getContents($page_url);
             preg_match_all($this->price_preg, $page_contents, $price_arr);
             preg_match_all($this->title_preg, $page_contents, $title_arr);
             if(empty($title_arr)) continue;
@@ -34,10 +36,21 @@ class Crawler{
         }
         echo '爬完了！！';
     }
-    function write_log($string){
+    public function write_log($string){
         $file = './htyf_last.txt';
         file_put_contents($file, $string . PHP_EOL, FILE_APPEND);
-    }    
+    }  
+    public function getContents($url){
+        $timeout=5;
+        $curlhandle = curl_init();
+        curl_setopt($curlhandle,CURLOPT_URL,$url);
+        curl_setopt($curlhandle,CURLOPT_HEADER,0);
+        curl_setopt($curlhandle,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($curlhandle,CURLOPT_CONNECTTIMEOUT,$timeout);
+        $result = curl_exec($curlhandle);
+        curl_close($curlhandle);
+        return $result;
+    }
 }
 $crawle=new crawler();
 $crawle->craw();
